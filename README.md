@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Project preview tasks
 
-- [task01] Architecture
+- ~~[task01] Architecture~~
 - [task02] Theme
 - [task03] Components
 - [task04] Api
