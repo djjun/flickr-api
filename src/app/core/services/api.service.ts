@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http'
 import { environment } from 'src/environments/environment.prod'
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class APIService {
     page: 1
   }
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   /**
    * Convert Object to HttpParams
@@ -29,7 +30,7 @@ export class APIService {
   }
 
   getFeed() {
-    return this.httpClient.get(`${this.API_URL}/`).subscribe(
+    return this.http.get(`${this.API_URL}/`).subscribe(
       () => {
         console.log('success')
       },
@@ -46,22 +47,16 @@ export class APIService {
    * @returns {Object}
    */
   getSearchPhotos(tags: string, page: number = 1) {
-    return this.httpClient
+    return this.http
       .get(`${this.API_URL}/`, {
         params: this.setBodyToParams({
           ...this.objParamsDefault,
           method: 'flickr.photos.search',
           page: page,
-          tags: tags
+          tags: tags,
+          nojsoncallback: 1
         })
       })
-      .subscribe(
-        res => {
-          console.log('success', res)
-        },
-        err => {
-          console.log('error', err)
-        }
-      )
+      .pipe(map(res => res['photos']))
   }
 }

@@ -38,7 +38,7 @@ export class APIInterceptor implements HttpInterceptor {
         error => {
           // Error response
           if (event instanceof HttpErrorResponse) {
-            console.log('api call error :', event)
+            console.log('api call error :', error)
           }
         }
       )
