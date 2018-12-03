@@ -10,6 +10,6 @@ export class HomeComponent implements OnInit {
   constructor(private api: APIService) {}
 
   ngOnInit() {
-    this.api.getSearchPhotos('teste')
+    // this.api.getSearchPhotos('teste')
   }
 }
