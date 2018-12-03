@@ -7,9 +7,11 @@ import { APIService } from 'src/app/core/services/api.service'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  data: any
+
   constructor(private api: APIService) {}
 
   ngOnInit() {
-    this.api.getSearchPhotos('teste')
+    this.api.getSearchPhotos('teste').subscribe(data => (this.data = data))
   }
 }
