@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http'
 import { environment } from 'src/environments/environment.prod'
-import { map } from 'rxjs/operators'
+import { map, filter } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class APIService {
     format: 'json',
     api_key: environment.flickr.KEY,
     per_page: 20,
-    page: 1
+    extras: 'url_z, owner_name, date_taken, tags'
   }
 
   constructor(private http: HttpClient) {}
@@ -57,6 +57,12 @@ export class APIService {
           nojsoncallback: 1
         })
       })
-      .pipe(map(res => res['photos']))
+      .pipe(
+        map(res => res['photos']),
+        map(res => {
+          res.photo = res.photo.filter(photo => !!photo.url_z)
+          return res
+        })
+      )
   }
 }

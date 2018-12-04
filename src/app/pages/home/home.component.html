@@ -1,5 +1,18 @@
 
-<card-component></card-component>
-<p>
-  {{data | json}}
-</p>
+<div *ngIf="!!data">
+
+  <ngx-masonry
+    class="home-component__mansory"
+    [options]="{ gutter: 15, fitWidth: true, transitionDuration: '0.3s'}"
+    [useImagesLoaded]="true"
+    infiniteScroll
+    [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="3000"
+    (scrolled)="onScroll()">
+
+      <div ngxMasonryItem *ngFor="let photo of data" class="home-component__mansory--item">
+        <card-component [photo]="photo" (tagClick)="onTagClick($event)"></card-component>
+      </div>
+    </ngx-masonry>
+    <loading-component *ngIf="hasLoading"></loading-component>
+</div>
