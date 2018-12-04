@@ -22,6 +22,11 @@ This project was based on mobile first.
 - ~~[task04] Api~~
 - [task05] Optimization
 
+## Next tasks
+
+- [task06] Create Models
+- [task07] Fix karma tests
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
