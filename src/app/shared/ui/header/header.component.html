@@ -3,7 +3,7 @@
         <i class="fab fa-pinterest-p header-component__icon--color-white"></i>
     </div>
     <div class="header-component__search d-flex">
-        <input type="text" class="header-component__input" />
-        <i class="header-component__icon header-component__icon--search"></i>
+        <input type="text" class="header-component__input" [(ngModel)]="inputForm" (keydown.enter)="onSubmit()" />
+        <i class="fas fa-search header-component__icon--search"></i>
     </div>
 </nav>

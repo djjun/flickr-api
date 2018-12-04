@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { APIService } from 'src/app/core/services/api.service'
+import { SearchService } from 'src/app/shared/service/search/search.service'
 
 @Component({
   selector: 'home-component',
@@ -10,22 +11,27 @@ import { APIService } from 'src/app/core/services/api.service'
 export class HomeComponent implements OnInit {
   data: any = []
   currentPage: number = 1
+  searchStr: string = ''
   hasLoading: boolean = false
 
   scrollCallback
 
-  constructor(private api: APIService) {
+  constructor(private api: APIService, private search: SearchService) {
     this.scrollCallback = this.searchPhotos.bind(this)
   }
 
   ngOnInit() {
-    this.searchPhotos()
+    this.search.change.subscribe(str => {
+      this.data = []
+      this.searchStr = str
+      this.searchPhotos()
+    })
   }
 
   searchPhotos() {
     this.hasLoading = true
     this.api
-      .getSearchPhotos('dragonball', this.currentPage)
+      .getSearchPhotos(this.searchStr, this.currentPage)
       .subscribe(this.processData)
   }
 
