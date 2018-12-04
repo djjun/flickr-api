@@ -4,10 +4,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor,
-  HttpResponse,
-  HttpErrorResponse,
-  HttpHeaders
+  HttpInterceptor
 } from '@angular/common/http'
 import { Observable } from 'rxjs'
 
@@ -19,29 +16,17 @@ export class APIInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    //Set Params in request
-    request.clone({
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'dj-token-test'
-      })
-    })
+    // Set Params in request
+    //
+    // The API didn't enable cross domain
+    // so this code will be commented out.
+    //
+    // request = request.clone({
+    //   setHeaders: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
 
-    return next.handle(request).pipe(
-      tap(
-        event => {
-          // Success
-          if (event instanceof HttpResponse) {
-            console.log('api call success :', event)
-          }
-        },
-        error => {
-          // Error response
-          if (event instanceof HttpErrorResponse) {
-            console.log('api call error :', error)
-          }
-        }
-      )
-    )
+    return next.handle(request)
   }
 }

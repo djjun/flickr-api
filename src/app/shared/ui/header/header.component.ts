@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, Output, EventEmitter, Input } from '@angular/core'
+import { SearchService } from '../../service/search/search.service'
 
 @Component({
   selector: 'ui-header',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor() {}
+  inputForm: string = ''
+
+  @Input() receiveTag
+
+  constructor(private search: SearchService) {}
+
+  onSubmit() {
+    if (this.inputForm.length > 0) this.search.searchFn(this.inputForm)
+  }
 }
