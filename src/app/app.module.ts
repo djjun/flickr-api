@@ -7,8 +7,9 @@ import { HomeComponent } from './pages/home/home.component'
 import { FooterComponent, HeaderComponent, LayoutComponent } from './shared/ui'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { APIInterceptor } from './core/interceptors/api.interceptor'
-import { AngularFontAwesomeModule } from 'angular-font-awesome'
-import { CardComponent } from './shared/components'
+import { CardComponent, LoadingComponent } from './shared/components'
+import { NgxMasonryModule } from 'ngx-masonry'
+import { InfiniteScrollModule } from 'ngx-infinite-scroll'
 
 @NgModule({
   declarations: [
@@ -17,13 +18,15 @@ import { CardComponent } from './shared/components'
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    CardComponent
+    CardComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AngularFontAwesomeModule
+    NgxMasonryModule,
+    InfiniteScrollModule
   ],
   providers: [
     {

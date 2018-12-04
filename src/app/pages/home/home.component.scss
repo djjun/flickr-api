@@ -1,0 +1,10 @@
+.home-component {
+  &__mansory {
+    margin: 0 auto;
+
+    &--item {
+      margin-bottom: 30px;
+      flex-direction: column;
+    }
+  }
+}

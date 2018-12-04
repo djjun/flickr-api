@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'
 
 @Component({
   selector: 'card-component',
@@ -6,7 +6,17 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
+  @Input() photo: Object
+
+  @Output() tagClick = new EventEmitter()
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.photo['tags'] = this.photo['tags'].split(' ')
+  }
+
+  onClickTag(tag) {
+    this.tagClick.emit(tag)
+  }
 }
