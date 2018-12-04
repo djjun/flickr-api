@@ -9,7 +9,7 @@ This project using:
 - [ngx-masonry](https://github.com/gethinoakes/ngx-masonry);
 - [ngx-infinite-scroll](https://github.com/orizens/ngx-infinite-scroll);
 
-This project was based on mobile first. 
+This project was based on mobile first using in angular 7 modular concepts ( core / pages (or modules)/ shared).
 
 ## Run roject
 `npm i && ng serve`
@@ -21,6 +21,11 @@ This project was based on mobile first.
 - ~~[task03] Components~~
 - ~~[task04] Api~~
 - [task05] Optimization
+
+## Next tasks
+
+- [task06] Create Models
+- [task07] Fix karma tests
 
 ## Development server
 
