@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   currentPage: number = 1
   searchStr: string = ''
   hasLoading: boolean = false
+  noPhotos: boolean = false
 
   scrollCallback
 
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.search.change.subscribe(str => {
+      this.noPhotos = false
       this.data = []
       this.searchStr = str
       this.searchPhotos()
@@ -36,9 +38,13 @@ export class HomeComponent implements OnInit {
   }
 
   processData = newData => {
-    let oldData = this.data
-    this.currentPage++
-    this.data = oldData.concat(newData.photo)
+    if (newData.pages > 0) {
+      let oldData = this.data
+      this.currentPage++
+      this.data = oldData.concat(newData.photo)
+    } else {
+      this.noPhotos = true
+    }
 
     this.hasLoading = false
   }
