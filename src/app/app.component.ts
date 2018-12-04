@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: '<ui-layout><router-outlet></router-outlet></ui-layout>',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'flickr-api';
-}
+export class AppComponent {}

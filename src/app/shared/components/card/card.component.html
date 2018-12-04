@@ -1,0 +1,14 @@
+<div class="card-component d-flex">
+    <img width="260" [src]="photo.url_z" class="img-fluid card-component__image">
+    <div class="card-component__description">
+      <strong>{{photo.title}}</strong>
+      <div class="card-component__tags card-component__tags--close">
+        <div class="card-component__tags--container">
+            <span class="badge badge-light" *ngFor="let tag of photo.tags" (click)="onClickTag(tag)">{{tag}}</span>
+        </div>
+      </div>
+    </div>
+    <a [href]="'https://www.flickr.com/photos/' + photo.owner + '/' + photo.id" target="_blank" class="card-component__link-icon">
+      <i class="card-component__link-icon--color-white fas fa-external-link-alt"></i>
+    </a>
+</div>

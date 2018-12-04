@@ -1,0 +1,44 @@
+.card-component {
+  flex-direction: column;
+  position: relative;
+
+  &__image {
+    overflow: hidden;
+    border-radius: 6px;
+    border: solid 3px #dc3545;
+  }
+
+  &__description {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(260px - 30px);
+    padding: 5px 15px;
+  }
+
+  &__link-icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 6px;
+    z-index: 10;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #dc3545;
+
+    &--color-white {
+      font-size: 24px;
+      color: #fff;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-direction: column;
+
+    &--container {
+      display: flex;
+      flex-wrap: wrap;
+      width: calc(260px - 30px);
+    }
+  }
+}

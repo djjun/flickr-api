@@ -1,0 +1,43 @@
+.header-component {
+  padding: 15px 10px;
+
+  &__icon {
+    min-width: 45px;
+    min-height: 45px;
+    border-radius: 50%;
+
+    &--pintrest {
+      background: #dc3545;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--color-white {
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+
+  &__search {
+    margin: 0 15px;
+    width: calc(100% - 30px);
+  }
+
+  &__input {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: gray;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    height: 100%;
+    line-height: 20px;
+    outline: none;
+    padding: 0 40px 0 52px;
+    width: 100%;
+  }
+}
