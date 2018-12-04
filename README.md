@@ -2,13 +2,30 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
+Node: v10.14.1
+NPM: 6.4.1
+
+This project using:
+- [ngx-masonry](https://github.com/gethinoakes/ngx-masonry);
+- [ngx-infinite-scroll](https://github.com/orizens/ngx-infinite-scroll);
+
+This project was based on mobile first using in angular 7 modular concepts ( core / pages (or modules)/ shared).
+
+## Run roject
+`npm i && ng serve`
+
 ## Project preview tasks
 
 - ~~[task01] Architecture~~
-- [task02] Theme
-- [task03] Components
-- [task04] Api
+- ~~[task02] Theme~~
+- ~~[task03] Components~~
+- ~~[task04] Api~~
 - [task05] Optimization
+
+## Next tasks
+
+- [task06] Create Models
+- [task07] Fix karma tests
 
 ## Development server
 
@@ -29,6 +46,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Reported Bugs
+- Sometimes the masonry gets lost while rendering the photos;
+- Flickr api sometimes not return some datas like photo or owner;
+- The interceptor doesn't work because the crossdomain is not enabled.
 
 ## Further help
 

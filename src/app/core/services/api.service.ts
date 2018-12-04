@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http'
 import { environment } from 'src/environments/environment.prod'
-import { map, filter } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class APIService {
     format: 'json',
     api_key: environment.flickr.KEY,
     per_page: 20,
+    nojsoncallback: 1,
     extras: 'url_z, owner_name, date_taken, tags'
   }
 
@@ -29,17 +30,6 @@ export class APIService {
     )
   }
 
-  getFeed() {
-    return this.http.get(`${this.API_URL}/`).subscribe(
-      () => {
-        console.log('success')
-      },
-      error => {
-        console.log('error')
-      }
-    )
-  }
-
   /**
    * Search photos by tag
    * @param {string} tags
@@ -53,8 +43,7 @@ export class APIService {
           ...this.objParamsDefault,
           method: 'flickr.photos.search',
           page: page,
-          tags: tags,
-          nojsoncallback: 1
+          tags: tags
         })
       })
       .pipe(

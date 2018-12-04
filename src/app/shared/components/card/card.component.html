@@ -7,6 +7,10 @@
             <span class="badge badge-light" *ngFor="let tag of photo.tags" (click)="onClickTag(tag)">{{tag}}</span>
         </div>
       </div>
+      <div class="card-component__owner">
+        <img class="card-component__owner--img" [src]="'//flickr.com/buddyicons/'+photo.owner+'.jpg'" [alt]="photo.ownername" />
+        <span class="card-component__owner--p">{{photo.ownername}}</span>
+      </div>
     </div>
     <a [href]="'https://www.flickr.com/photos/' + photo.owner + '/' + photo.id" target="_blank" class="card-component__link-icon">
       <i class="card-component__link-icon--color-white fas fa-external-link-alt"></i>

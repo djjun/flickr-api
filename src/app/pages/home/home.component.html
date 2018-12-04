@@ -6,7 +6,7 @@
     [options]="{ gutter: 15, fitWidth: true, transitionDuration: '0.3s'}"
     [useImagesLoaded]="true"
     infiniteScroll
-    [infiniteScrollDistance]="1"
+    [infiniteScrollDistance]="2"
     [infiniteScrollThrottle]="3000"
     (scrolled)="onScroll()">
 
@@ -15,4 +15,12 @@
       </div>
     </ngx-masonry>
     <loading-component *ngIf="hasLoading"></loading-component>
+</div>
+
+<div *ngIf="data.length == 0 && !hasLoading && !noPhotos" class="d-flex home-component__make-search">
+    SEARCH IMAGES BY TAGS
+</div>
+
+<div *ngIf="noPhotos" class="d-flex home-component__make-search">
+    SEARCH DIDN'T RETURN IMAGES
 </div>
